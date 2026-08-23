@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 
-url = "https://www.newegg.ca/p/2AC-011A-009A0?Item=9SIC78TM4P4896"
+url = "https://www.newegg.ca/p/2AC-011A-009A0?Item=9SIC78TM4P4896" # url of the web page
 
 results = requests.get(url)
 # print(results.text)
@@ -19,4 +19,5 @@ prices = doc.find_all(string="$")
 parent = prices[0].parent
 # print(parent)
 strong = parent.find("strong")
-print(strong.string)
+# print("Price of the item :")
+print(doc.title.string+" : "+strong.string)
